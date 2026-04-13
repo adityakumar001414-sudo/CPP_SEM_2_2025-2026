@@ -1,10 +1,10 @@
 #include <iostream>
 #include <string>
-#include <iomanip> // For formatted table output
+#include <iomanip> 
 
 using namespace std;
 
-// Requirement 1: Create a class named Student
+
 class Student {
 private:
     string name;
@@ -13,10 +13,10 @@ private:
     float percentage;
 
 public:
-    // Requirement 1: Accept input from the user
+    
     void acceptDetails() {
         cout << "Enter Student Name: ";
-        cin.ignore(); // Clears buffer to allow getline to work
+        cin.ignore(); 
         getline(cin, name);
         
         for (int i = 0; i < 3; i++) {
@@ -24,22 +24,22 @@ public:
             cin >> marks[i];
         }
         
-        // Automatically trigger calculations after input
+     
         calculateTotal();
         calculatePercentage();
     }
 
-    // Requirement 2: Member function to calculate total marks
+  
     void calculateTotal() {
         total = marks[0] + marks[1] + marks[2];
     }
 
-    // Requirement 3: Calculate percentage (assuming 100 marks per subject)
+
     void calculatePercentage() {
         percentage = (total / 300.0) * 100.0;
     }
 
-    // Requirement 4: Display details in a structured format
+   
     void displayDetails(int srNo) {
         cout << left << setw(5) << srNo 
              << setw(15) << name 
@@ -54,21 +54,21 @@ public:
 int main() {
     int count;
 
-    // Requirement 5: Accept and display details of multiple students
+    
     cout << "===== STUDENT DATABASE SYSTEM =====" << endl;
     cout << "Enter the number of students: ";
     cin >> count;
 
-    // Create an array of Student objects
+    
     Student s[count];
 
-    // Input loop
+  
     for (int i = 0; i < count; i++) {
         cout << "\nRecording Data for Student #" << i + 1 << ":" << endl;
         s[i].acceptDetails();
     }
 
-    // Display Table Header
+
     cout << "\n" << string(65, '=') << endl;
     cout << left << setw(5) << "Sr." 
          << setw(15) << "Name" 
@@ -79,7 +79,9 @@ int main() {
          << "Percentage" << endl;
     cout << string(65, '-') << endl;
 
-    // Output loop
+
+
+    
     for (int i = 0; i < count; i++) {
         s[i].displayDetails(i + 1);
     }
